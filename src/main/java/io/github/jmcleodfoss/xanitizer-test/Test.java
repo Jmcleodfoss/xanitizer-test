@@ -85,11 +85,11 @@ class Test
 					FileChannel fc = stream.getChannel();
 					try {
 						MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
-						mbb.order(java.nio.ByteOrder.LITTLE_ENDIAN);
-
-						Header header = new Header(mbb, fc.size());
-						DIFAT difat = new DIFAT(mbb, header);
-						FAT fat = new FAT(mbb, header, difat);
+//						mbb.order(java.nio.ByteOrder.LITTLE_ENDIAN);
+//
+//						Header header = new Header(mbb, fc.size());
+//						DIFAT difat = new DIFAT(mbb, header);
+//						FAT fat = new FAT(mbb, header, difat);
 						Directory directory = new Directory();
 
 						java.util.Iterator<DirectoryEntry> iterator = directory.entries.iterator();
@@ -111,8 +111,8 @@ class Test
 						}
 					} catch (final java.io.IOException e) {
 						System.out.printf("There was a problem reading from file %s%n", a);
-					} catch (final NotCFBFileException e) {
-						e.printStackTrace(System.out);
+//					} catch (final NotCFBFileException e) {
+//						e.printStackTrace(System.out);
 					} catch (final UnknownStorageTypeException e) {
 						e.printStackTrace(System.out);
 					} finally {
