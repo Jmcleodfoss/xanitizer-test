@@ -43,5 +43,6 @@ class Test
 			}
 		} catch (final java.io.FileNotFoundException e) {
 			System.out.printf("File not found%n");
+		}
 	}
 }
