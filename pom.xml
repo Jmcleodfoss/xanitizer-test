@@ -1,0 +1,56 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.github.jmcleodfoss</groupId>
+	<artifactId>xanitizer-test</artifactId>
+	<version>0.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<url>https://io.github.com/Jmcleodfoss/xanitizer-test</url>
+	<description>Test for Xanitizer problem.</description>
+
+	<licenses>
+		<license>
+			<name>The MIT Licence</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>James McLeod</name>
+			<email>jmcleodfoss@gmail.com</email>
+			<organizationUrl>https://io.github.com/Jmcleodfoss</organizationUrl>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.scm.id>github</project.scm.id>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<scm>
+		<connection>scm:git:https://github.com/Jmcleodfoss/xanitizer-test.git</connection>
+		<developerConnection>scm:git:https://github.com/Jmcleodfoss/xanitizer-test.git</developerConnection>
+		<url>https://github.com/Jmcleodfoss/xanitizer-test</url>
+	</scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<compilerArgs>
+						<arg>-Xlint:all</arg>
+						<arg>-XDcompilePolicy=simple</arg>
+					</compilerArgs>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
