@@ -43,6 +43,8 @@ class Test
 			System.exit(1);
 		}
 
+		ArrayList<DirectoryEntry> data = new ArrayList<DirectoryEntry>();
+
 		for (String a: args) {
 			System.out.println(a);
 			try {
@@ -55,17 +57,18 @@ class Test
 
 						Directory directory = new Directory();
 
-						System.out.println("\n");
+//						System.out.println("\n");
 						for (int i = 0; i < directory.entries.size(); ++i){
-							ArrayList<DirectoryEntry> children = directory.getChildren(directory.entries.get(i));
-							if (children.size() > 0){
-								System.out.printf("Children of 0x%02x:%n", i);
-								java.util.Iterator<DirectoryEntry> childIterator = children.iterator();
+//							ArrayList<DirectoryEntry> children = directory.getChildren(directory.entries.get(i));
+//							if (children.size() > 0){
+//								System.out.printf("Children of 0x%02x:%n", i);
+//								java.util.Iterator<DirectoryEntry> childIterator = children.iterator();
+								java.util.Iterator<DirectoryEntry> childIterator = data.iterator();
 								while (childIterator.hasNext()) {
 										DirectoryEntry child = childIterator.next();
 										System.out.println("\t" + child);
 								}
-							}
+//							}
 						}
 					} catch (final java.io.IOException e) {
 						System.out.printf("There was a problem reading from file %s%n", a);
