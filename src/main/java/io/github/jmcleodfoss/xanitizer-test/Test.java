@@ -16,7 +16,7 @@ class Test
 				Iterator<Integer> iter = al.iterator();
 				while (iter.hasNext()) {
 					Integer i = iter.next();
-					System.out.println(i);
+					System.out.println("\t" + i);
 				}
 			} finally {
 				try {

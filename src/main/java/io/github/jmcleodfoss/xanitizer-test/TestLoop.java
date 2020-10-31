@@ -12,7 +12,7 @@ class TestLoop
 			FileInputStream stream = new FileInputStream("test2.csv");
 			try {
 				for (int i = 0; i < 10; ++i)
-					System.out.println(i);
+					System.out.println("\t" + i);
 			} finally {
 				try {
 					stream.close();
