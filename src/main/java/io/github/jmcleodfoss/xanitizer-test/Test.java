@@ -55,6 +55,12 @@ class Test
 		{
 		}
 
+		Directory()
+		throws
+			UnknownStorageTypeException
+		{
+		}
+
 		ArrayList<DirectoryEntry> getChildren(DirectoryEntry de)
 		{
 			return entries;
@@ -90,7 +96,8 @@ class Test
 						Header header = new Header(mbb, fc.size());
 						DIFAT difat = new DIFAT(mbb, header);
 						FAT fat = new FAT(mbb, header, difat);
-						Directory directory = new Directory(mbb, header, fat);
+//						Directory directory = new Directory(mbb, header, fat);
+						Directory directory = new Directory();
 
 						java.util.Iterator<DirectoryEntry> iterator = directory.entries.iterator();
 						int i = 0;
