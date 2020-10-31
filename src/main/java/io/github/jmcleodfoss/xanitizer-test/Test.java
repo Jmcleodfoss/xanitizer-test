@@ -28,5 +28,20 @@ class Test
 		} catch (final java.io.FileNotFoundException e) {
 			System.out.printf("File not found%n");
 		}
+
+		try {
+			FileInputStream stream = new FileInputStream("test.csv");
+			try {
+				for (int i = 0; i < 10; ++i)
+					System.out.println(i);
+			} finally {
+				try {
+					stream.close();
+				} catch (final java.io.IOException e) {
+					System.out.printf("There was a problem closing file%n");
+				}
+			}
+		} catch (final java.io.FileNotFoundException e) {
+			System.out.printf("File not found%n");
 	}
 }
