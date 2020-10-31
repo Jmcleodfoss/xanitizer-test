@@ -55,11 +55,6 @@ class Test
 
 						Directory directory = new Directory();
 
-//						java.util.Iterator<DirectoryEntry> iterator = directory.entries.iterator();
-//						int i = 0;
-//						while (iterator.hasNext())
-//							System.out.printf("0x%02x: %s%n", i++, iterator.next().toString());
-//
 						System.out.println("\n");
 						for (int i = 0; i < directory.entries.size(); ++i){
 							ArrayList<DirectoryEntry> children = directory.getChildren(directory.entries.get(i));
