@@ -1,7 +1,5 @@
 package io.github.jmcleodfoss.xanitizertest;
 
-import java.nio.channels.FileChannel;
-import java.nio.MappedByteBuffer;
 import java.util.ArrayList;
 
 class Test
