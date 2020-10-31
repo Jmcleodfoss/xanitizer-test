@@ -103,8 +103,10 @@ class Test
 							if (children.size() > 0){
 								System.out.printf("Children of 0x%02x:%n", i);
 								java.util.Iterator<DirectoryEntry> childIterator = children.iterator();
-								while (childIterator.hasNext())
-									System.out.println("\t" + childIterator.next());
+								while (childIterator.hasNext()) {
+										DirectoryEntry child = childIterator.next();
+										System.out.println("\t" + child);
+								}
 							}
 						}
 					} catch (final java.io.IOException e) {
