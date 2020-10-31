@@ -6,10 +6,6 @@ import java.util.ArrayList;
 
 class Test
 {
-	/** Test this class by printing out the directory and the list of children for each node.
-	*	@param	args	The msg file(s) to display the directory(ies) of.
-	*/
-	@SuppressWarnings("PMD.DoNotCallSystemExit")
 	public static void main(String[] args)
 	{
 		ArrayList<Integer> data = new ArrayList<Integer>();
