@@ -19,8 +19,8 @@ class Test
 		ArrayList<DirectoryEntry> entries;
 
 		Directory()
-		throws
-			UnknownStorageTypeException
+//		throws
+//			UnknownStorageTypeException
 		{
 		}
 
@@ -76,8 +76,8 @@ class Test
 						}
 					} catch (final java.io.IOException e) {
 						System.out.printf("There was a problem reading from file %s%n", a);
-					} catch (final UnknownStorageTypeException e) {
-						e.printStackTrace(System.out);
+//					} catch (final UnknownStorageTypeException e) {
+//						e.printStackTrace(System.out);
 					} finally {
 						try {
 							fc.close();
