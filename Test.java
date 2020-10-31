@@ -1,0 +1,135 @@
+package io.github.jmcleodfoss.xanitizertest;
+
+import java.nio.channels.FileChannel;
+import java.nio.MappedByteBuffer;
+import java.util.ArrayList;
+
+class Test
+{
+	static class NotCFBFileException extends Exception
+	{
+		NotCFBFileException()
+		{
+			super("Not CFB File");
+		}
+	}
+
+	static class UnknownStorageTypeException extends Exception
+	{
+		UnknownStorageTypeException()
+		{
+			super("Unknown Storage Type");
+		}
+	}
+
+	static class Header
+	{
+		Header(MappedByteBuffer mbb, long size)
+		throws
+			NotCFBFileException
+		{
+		}
+	}
+
+	static class DIFAT
+	{
+		DIFAT(MappedByteBuffer mbb, Header header)
+		{
+		}
+	}
+
+	static class FAT
+	{
+		FAT(MappedByteBuffer mbb, Header header, DIFAT difat)
+		{
+		}
+	}
+
+	static class Directory
+	{
+		ArrayList<DirectoryEntry> entries;
+
+		Directory(MappedByteBuffer mbb, Header header, FAT fat)
+		throws
+			UnknownStorageTypeException
+		{
+		}
+
+		ArrayList<DirectoryEntry> getChildren(DirectoryEntry de)
+		{
+			return entries;
+		}
+	}	
+
+	static class DirectoryEntry
+	{
+	}
+
+	/** Test this class by printing out the directory and the list of children for each node.
+	*	@param	args	The msg file(s) to display the directory(ies) of.
+	*/
+	@SuppressWarnings("PMD.DoNotCallSystemExit")
+	public static void main(String[] args)
+	{
+		if (args.length == 0) {
+			System.out.println("use:\n\tjava io.github.jmcleodfoss.mst.Directory msg-file [msg-file] ...");
+			System.exit(1);
+		}
+
+		for (String a: args) {
+			System.out.println(a);
+			try {
+				java.io.File file = new java.io.File(a);
+				java.io.FileInputStream stream = new java.io.FileInputStream(file);
+				try {
+					FileChannel fc = stream.getChannel();
+					try {
+						MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+						mbb.order(java.nio.ByteOrder.LITTLE_ENDIAN);
+
+						Header header = new Header(mbb, fc.size());
+						DIFAT difat = new DIFAT(mbb, header);
+						FAT fat = new FAT(mbb, header, difat);
+						Directory directory = new Directory(mbb, header, fat);
+
+						java.util.Iterator<DirectoryEntry> iterator = directory.entries.iterator();
+						int i = 0;
+						while (iterator.hasNext())
+							System.out.printf("0x%02x: %s%n", i++, iterator.next().toString());
+
+						System.out.println("\n");
+						for (i = 0; i < directory.entries.size(); ++i){
+							ArrayList<DirectoryEntry> children = directory.getChildren(directory.entries.get(i));
+							if (children.size() > 0){
+								System.out.printf("Children of 0x%02x:%n", i);
+								java.util.Iterator<DirectoryEntry> childIterator = children.iterator();
+								while (childIterator.hasNext())
+									System.out.println("\t" + childIterator.next());
+							}
+						}
+					} catch (final java.io.IOException e) {
+						System.out.printf("There was a problem reading from file %s%n", a);
+					} catch (final NotCFBFileException e) {
+						e.printStackTrace(System.out);
+					} catch (final UnknownStorageTypeException e) {
+						e.printStackTrace(System.out);
+					} finally {
+						try {
+							fc.close();
+						} catch (final java.io.IOException e) {
+							System.out.printf("There was a problem closing filechannel for stream for file %s%n", a);
+						}
+					}
+				} finally {
+					try {
+						stream.close();
+					} catch (final java.io.IOException e) {
+						System.out.printf("There was a problem closing file %s%n", a);
+					}
+				}
+			} catch (final java.io.FileNotFoundException e) {
+				System.out.printf("File %s not found%n", a);
+			}
+		}
+	}
+}
