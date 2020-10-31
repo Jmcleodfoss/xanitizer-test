@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 class Test
 {
-	static class DirectoryEntry
-	{
-	}
+//	static class DirectoryEntry
+//	{
+//	}
 
 	/** Test this class by printing out the directory and the list of children for each node.
 	*	@param	args	The msg file(s) to display the directory(ies) of.
@@ -16,25 +16,28 @@ class Test
 	@SuppressWarnings("PMD.DoNotCallSystemExit")
 	public static void main(String[] args)
 	{
-		if (args.length == 0) {
-			System.out.println("use:\n\tjava io.github.jmcleodfoss.mst.Directory msg-file [msg-file] ...");
-			System.exit(1);
-		}
+//		if (args.length == 0) {
+//			System.out.println("use:\n\tjava io.github.jmcleodfoss.mst.Directory msg-file [msg-file] ...");
+//			System.exit(1);
+//		}
 
-		ArrayList<DirectoryEntry> data = new ArrayList<DirectoryEntry>();
+//		ArrayList<DirectoryEntry> data = new ArrayList<DirectoryEntry>();
+		ArrayList<Integer> data = new ArrayList<Integer>();
 
 		try {
-			java.io.File file = new java.io.File("test.csv");
-			java.io.FileInputStream stream = new java.io.FileInputStream(file);
+//			java.io.File file = new java.io.File("test.csv");
+			java.io.FileInputStream stream = new java.io.FileInputStream("test.csv");
 			try {
-				try {
-					java.util.Iterator<DirectoryEntry> childIterator = data.iterator();
+//				try {
+//					java.util.Iterator<DirectoryEntry> childIterator = data.iterator();
+					java.util.Iterator<Integer> childIterator = data.iterator();
 					while (childIterator.hasNext()) {
-							DirectoryEntry child = childIterator.next();
-							System.out.println("\t" + child);
+//						DirectoryEntry child = childIterator.next();
+						Integer child = childIterator.next();
+						System.out.println("\t" + child);
 					}
-				} finally {
-				}
+//				} finally {
+//				}
 			} finally {
 				try {
 					stream.close();
