@@ -1,6 +1,8 @@
 package io.github.jmcleodfoss.xanitizertest;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class Test
 {
@@ -9,12 +11,12 @@ class Test
 		ArrayList<Integer> al = new ArrayList<Integer>();
 
 		try {
-			java.io.FileInputStream stream = new java.io.FileInputStream("test.csv");
+			FileInputStream stream = new FileInputStream("test.csv");
 			try {
-				java.util.Iterator<Integer> iter = al.iterator();
+				Iterator<Integer> iter = al.iterator();
 				while (iter.hasNext()) {
 					Integer i = iter.next();
-					System.out.println("\t" + i);
+					System.out.println(i);
 				}
 			} finally {
 				try {
