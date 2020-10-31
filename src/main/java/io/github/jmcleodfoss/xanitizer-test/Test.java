@@ -6,15 +6,15 @@ class Test
 {
 	public static void main(String[] args)
 	{
-		ArrayList<Integer> data = new ArrayList<Integer>();
+		ArrayList<Integer> al = new ArrayList<Integer>();
 
 		try {
 			java.io.FileInputStream stream = new java.io.FileInputStream("test.csv");
 			try {
-				java.util.Iterator<Integer> childIterator = data.iterator();
-				while (childIterator.hasNext()) {
-					Integer child = childIterator.next();
-					System.out.println("\t" + child);
+				java.util.Iterator<Integer> iter = al.iterator();
+				while (iter.hasNext()) {
+					Integer i = iter.next();
+					System.out.println("\t" + i);
 				}
 			} finally {
 				try {
