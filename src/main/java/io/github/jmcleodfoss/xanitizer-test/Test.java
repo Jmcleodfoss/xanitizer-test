@@ -11,7 +11,7 @@ class Test
 		ArrayList<Integer> al = new ArrayList<Integer>();
 
 		try {
-			FileInputStream stream = new FileInputStream("test.csv");
+			FileInputStream stream = new FileInputStream("test1.csv");
 			try {
 				Iterator<Integer> iter = al.iterator();
 				while (iter.hasNext()) {
@@ -30,7 +30,7 @@ class Test
 		}
 
 		try {
-			FileInputStream stream = new FileInputStream("test.csv");
+			FileInputStream stream = new FileInputStream("test2.csv");
 			try {
 				for (int i = 0; i < 10; ++i)
 					System.out.println(i);
