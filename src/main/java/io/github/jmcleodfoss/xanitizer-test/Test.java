@@ -28,7 +28,7 @@ class Test
 		} catch (final java.io.FileNotFoundException e) {
 			System.out.printf("File not found%n");
 		}
-
+/*
 		try {
 			FileInputStream stream = new FileInputStream("test2.csv");
 			try {
@@ -44,5 +44,6 @@ class Test
 		} catch (final java.io.FileNotFoundException e) {
 			System.out.printf("File not found%n");
 		}
+*/
 	}
 }
