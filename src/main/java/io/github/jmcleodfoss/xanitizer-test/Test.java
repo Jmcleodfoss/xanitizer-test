@@ -23,13 +23,13 @@ class Test
 
 		ArrayList<DirectoryEntry> data = new ArrayList<DirectoryEntry>();
 
-		for (String a: args) {
-			System.out.println(a);
+//		for (String a: args) {
+//			System.out.println(a);
 			try {
-				java.io.File file = new java.io.File(a);
+				java.io.File file = new java.io.File("test.csv");
 				java.io.FileInputStream stream = new java.io.FileInputStream(file);
 				try {
-					FileChannel fc = stream.getChannel();
+//					FileChannel fc = stream.getChannel();
 					try {
 						java.util.Iterator<DirectoryEntry> childIterator = data.iterator();
 						while (childIterator.hasNext()) {
@@ -37,22 +37,22 @@ class Test
 								System.out.println("\t" + child);
 						}
 					} finally {
-						try {
-							fc.close();
-						} catch (final java.io.IOException e) {
-							System.out.printf("There was a problem closing filechannel for stream for file %s%n", a);
-						}
+//						try {
+//							fc.close();
+//						} catch (final java.io.IOException e) {
+//							System.out.printf("There was a problem closing filechannel for stream for file %s%n", a);
+//						}
 					}
 				} finally {
 					try {
 						stream.close();
 					} catch (final java.io.IOException e) {
-						System.out.printf("There was a problem closing file %s%n", a);
+						System.out.printf("There was a problem closing file%n");
 					}
 				}
 			} catch (final java.io.FileNotFoundException e) {
-				System.out.printf("File %s not found%n", a);
+				System.out.printf("File not found%n");
 			}
 		}
-	}
+//	}
 }
