@@ -4,20 +4,15 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-class Test
+class TestLoop
 {
 	public static void main(String[] args)
 	{
-		ArrayList<Integer> al = new ArrayList<Integer>();
-
 		try {
-			FileInputStream stream = new FileInputStream("test1.csv");
+			FileInputStream stream = new FileInputStream("test2.csv");
 			try {
-				Iterator<Integer> iter = al.iterator();
-				while (iter.hasNext()) {
-					Integer i = iter.next();
+				for (int i = 0; i < 10; ++i)
 					System.out.println(i);
-				}
 			} finally {
 				try {
 					stream.close();
