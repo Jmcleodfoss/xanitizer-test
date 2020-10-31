@@ -53,19 +53,19 @@ class Test
 				try {
 					FileChannel fc = stream.getChannel();
 					try {
-						MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+//						MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
 
-						Directory directory = new Directory();
+//						Directory directory = new Directory();
 
-						for (int i = 0; i < directory.entries.size(); ++i){
+//						for (int i = 0; i < directory.entries.size(); ++i){
 							java.util.Iterator<DirectoryEntry> childIterator = data.iterator();
 							while (childIterator.hasNext()) {
 									DirectoryEntry child = childIterator.next();
 									System.out.println("\t" + child);
 							}
-						}
-					} catch (final java.io.IOException e) {
-						System.out.printf("There was a problem reading from file %s%n", a);
+//						}
+//					} catch (final java.io.IOException e) {
+//						System.out.printf("There was a problem reading from file %s%n", a);
 					} finally {
 						try {
 							fc.close();
